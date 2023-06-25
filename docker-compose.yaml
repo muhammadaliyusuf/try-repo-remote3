@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+    vueapp_batchmei:
+        build:
+            # letak directori file docker-compose | tanda . menandakan berada di root yang sama dengan DockerFile
+            context: .
+            dockerfile: DockerFile
+        container_name: vueapp_batchmei
+        # port yang berjalan di docker opsional pilih salah satu jika terdapat lebih dari 1 port
+        ports:
+        - '8085:8080'
+        # mempertahankan file di dalam container ketika docker di destroy
+        volumes:
+        - '.:/app'
